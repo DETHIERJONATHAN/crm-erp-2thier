@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Tableau de bord</title>
+    <link rel='stylesheet' href='css/style.css'>
+</head>
+<body>
+    <h1>Bienvenue sur votre tableau de bord</h1>
+    <p id="welcomeMessage"></p>
+    <button onclick="logout()">Se déconnecter</button>
+
+    <script>
+        // Vérifie si l'utilisateur est connecté
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert("Accès refusé. Veuillez vous connecter.");
+            window.location.href = 'index.html';
+        } else {
+            document.getElementById('welcomeMessage').innerText = 'Vous êtes connecté.';
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

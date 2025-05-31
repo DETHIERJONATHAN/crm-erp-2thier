@@ -1,15 +1,15 @@
-require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const bodyParser = require('body-parser');
-
+const productRoutes = require('../routes/productRoutes');
+const categoryRoutes = require('../routes/categoryRoutes');
 const app = express();
-app.use(cors());
-app.use(helmet());
-app.use(bodyParser.json());
-app.use('/api/users', require('./routes/userRoutes'));
+const path = require('path');
+const userRoutes = require('./routes/userRoutes');
 
-app.get('/', (req, res) => res.send(' Serveur CRM/ERP opérationnel'));
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(' Serveur en écoute sur le port ' + PORT));
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.json());
+app.use('/products', productRoutes);
+app.use(userRoutes);
+
+app.use('/categories', categoryRoutes);
+app.listen(3000, () => console.log('Serveur en écoute sur le port 3000'));
+

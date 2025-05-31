@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Connexion - CRM ERP</title>
+    <link rel='stylesheet' href='css/style.css'>
+</head>
+<body>
+    <div class='container'>
+        <h1>Connexion</h1>
+        <form id='loginForm'>
+            <input type='email' id='loginEmail' placeholder='Email' required />
+            <input type='password' id='loginPassword' placeholder='Mot de passe' required />
+            <button type='submit'>Se connecter</button>
+        </form>
+        <h2>Ou créez un compte</h2>
+        <form id='registerForm'>
+            <input type='email' id='registerEmail' placeholder='Email' required />
+            <input type='password' id='registerPassword' placeholder='Mot de passe' required />
+            <button type='submit'>S'inscrire</button>
+        </form>
+        <div id='message'></div>
+    </div>
+    <script src='js/app.js'></script>
+</body>
+</html>
