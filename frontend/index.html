@@ -6,17 +6,31 @@
     <link rel='stylesheet' href='css/style.css'>
 </head>
 <body>
+    <nav>
+        <span class="logo">CRM ERP</span>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="#" id="nav-products">Produits</a></li>
+            <li><a href="#" id="nav-categories">Catégories</a></li>
+            <li><a href="#" id="nav-users">Utilisateurs</a></li>
+        </ul>
+    </nav>
     <div class='container'>
         <h1>Connexion</h1>
         <form id='loginForm'>
-            <input type='email' id='loginEmail' placeholder='Email' required />
-            <input type='password' id='loginPassword' placeholder='Mot de passe' required />
+            <input type='email' id='loginEmail' placeholder='Email' name='email' autocomplete='username' required />
+            <input type='password' id='loginPassword' placeholder='Mot de passe' name='password' autocomplete='current-password' required />
             <button type='submit'>Se connecter</button>
         </form>
-        <h2>Ou cr�ez un compte</h2>
+        <h2>Ou créez un compte</h2>
         <form id='registerForm'>
-            <input type='email' id='registerEmail' placeholder='Email' required />
-            <input type='password' id='registerPassword' placeholder='Mot de passe' required />
+            <input type='email' id='registerEmail' placeholder='Email' name='email' autocomplete='username' required />
+            <input type='password' id='registerPassword' placeholder='Mot de passe' name='password' autocomplete='new-password' required />
+            <select id='registerRole'>
+                <option value='user' selected>Utilisateur</option>
+                <option value='admin'>Admin</option>
+            </select>
             <button type='submit'>S'inscrire</button>
         </form>
         <div id='message'></div>

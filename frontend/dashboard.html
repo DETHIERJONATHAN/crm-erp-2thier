@@ -9,20 +9,24 @@
 <body>
     <h1>Bienvenue sur votre tableau de bord</h1>
     <p id="welcomeMessage"></p>
-    <button onclick="logout()">Se déconnecter</button>
+    <button onclick="logout()">Se dÃ©connecter</button>
 
     <script>
-        // Vérifie si l'utilisateur est connecté
+        // VÃ©rifie si l'utilisateur est connectÃ©
         const token = localStorage.getItem('token');
+        const email = localStorage.getItem('userEmail');
+        const role = localStorage.getItem('userRole');
         if (!token) {
-            alert("Accès refusé. Veuillez vous connecter.");
-            window.location.href = 'index.html';
+            alert("AccÃ¨s refusÃ©. Veuillez vous connecter.");
+            setTimeout(() => { window.location.href = 'index.html'; }, 1000);
         } else {
-            document.getElementById('welcomeMessage').innerText = 'Vous êtes connecté.';
+            document.getElementById('welcomeMessage').innerText = `Vous Ãªtes connectÃ© en tant que : ${email} (rÃ´le : ${role})`;
         }
 
         function logout() {
             localStorage.removeItem('token');
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('userRole');
             window.location.href = 'index.html';
         }
     </script>
